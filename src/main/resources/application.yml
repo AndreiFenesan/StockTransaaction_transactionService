@@ -1,0 +1,25 @@
+spring.application.name: transaction-service
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+server:
+  port: 8002
+
+spring:
+  data:
+    mongodb:
+      username: user_rw
+      password: root
+      host: localhost
+      port: 27017
+
+stock-api:
+  host: http://localhost:8999/stock-service
+  url: ${stock-api.host}/api/v1/stocks/{0}
+#  host: https://www.alphavantage.co
+#  function: TIME_SERIES_INTRADAY
+#  key: SU1V1P1S65JC85RR
+#  get-info-url: ${stock-api.host}/query?function=${stock-api.function}&symbol={0}&apikey=${stock-api.key}&interval=5min&outputsize=compact
